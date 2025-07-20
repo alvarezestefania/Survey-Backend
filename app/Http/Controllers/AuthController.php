@@ -15,7 +15,22 @@ class AuthController extends BaseController
 {
     public function signup(Request $request): JsonResponse
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name'      => 'required|string',
+            'email'     => 'required|string|email|unique:users,email',
+            'password'  => 'required|string|min:4|confirmed',
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error', $validator->errors()->all(), 401);
+        }
+        $user = User::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password),
+        ]);
+        $fullToken = $user->createToken('user-token')->plainTextToken;
+        $token = explode('|', $fullToken)[1];
+        return $this->sendResponse([], 'User signup succesful.');
     }
 
     public function signin(Request $request): JsonResponse
