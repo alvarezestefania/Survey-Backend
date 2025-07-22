@@ -22,7 +22,6 @@ Route::post('/auth/signin', [AuthController::class, 'signin']);
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/auth/signout', [AuthController::class, 'signout']);
-    Route::get('/auth/user', [AuthController::class, 'currentUser']);
 
     // Survey
     Route::get('/questions', [SurveyQuestionController::class, 'index']);
