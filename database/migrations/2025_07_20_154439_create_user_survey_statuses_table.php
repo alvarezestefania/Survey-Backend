@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamp('completed_at')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->timestamps();
         });
     }
 
