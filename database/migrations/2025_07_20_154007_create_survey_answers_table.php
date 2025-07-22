@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('survey_answers', function (Blueprint $table) {
             $table->id();
 
-            $table->text('answer');
+            $table->text('answer')->charset('utf8mb4')->collation('utf8mb4_unicode_ci');;
             $table->unsignedBigInteger('question_id'); // FK to survey_questions
             $table->unsignedBigInteger('user_id'); // FK to users
             $table->index('question_id');
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreign('question_id')->references('id')->on('survey_questions')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
+            $table->timestamps();
         });
 
 

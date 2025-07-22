@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SurveyQuestionController;
+use App\Http\Controllers\SurveyAnswerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/questions', [SurveyQuestionController::class, 'index']);
 
     // Survey Answers
-    Route::post('/answers', [SurveyAnswerController::class, 'create']);
+    Route::post('/answers', [SurveyAnswerController::class, 'store']);
     Route::get('/my-answers', [SurveyAnswerController::class, 'showMyAnswers']);
 
 });
