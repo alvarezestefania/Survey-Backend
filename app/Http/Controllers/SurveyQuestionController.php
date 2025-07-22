@@ -1,18 +1,25 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\SurveyQuestion;
+use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
 
-class SurveyQuestionController extends Controller
+class SurveyQuestionController extends BaseController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $answers  = SurveyQuestion::all();
+        $response = [
+            'status'  => 'success',
+            'code'    => 200,
+            'message' => 'Successful conection.',
+            'result'  => $answers->toArray(),
+        ];
+        return response()->json($response, 200);
     }
 
     /**
