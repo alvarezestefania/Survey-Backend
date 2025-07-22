@@ -47,7 +47,7 @@ class BaseController extends Controller
             'status'  => 'success',
             'code'    => 200,
             'message' => 'Successful connection',
-            'resultado' => [
+            'result' => [
                 'status'  => 'danger',
                 'code'    => $code,
                 'message' => is_array($errorMessages) ? implode(' ', $errorMessages) : $message,

@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth
 Route::post('/auth/signup', [AuthController::class, 'signup']);
 Route::post('/auth/signin', [AuthController::class, 'signin']);
-Route::get('/auth/signout', [AuthController::class, 'signout']);
-Route::get('/auth/user', [AuthController::class, 'currentUser']);
 
-Route::get('/questions', [SurveyQuestionController::class, 'index']);
+Route::middleware(['auth:sanctum'])->group(function () {
 
-Route::post('/answers', [SurveyAnswerController::class, 'create']);
-Route::get('/my-answers', [SurveyAnswerController::class, 'showMyAnswers']);
+    Route::get('/auth/signout', [AuthController::class, 'signout']);
 
+    // Survey
+    Route::get('/questions', [SurveyQuestionController::class, 'index']);
+
+    // Survey Answers
+    Route::post('/answers', [SurveyAnswerController::class, 'create']);
+    Route::get('/my-answers', [SurveyAnswerController::class, 'showMyAnswers']);
+
+});
