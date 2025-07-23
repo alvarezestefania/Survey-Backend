@@ -38,7 +38,11 @@ class SurveyAnswerController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Validation Error', $validator->errors()->all(), 422);
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Validation Error',
+                'errors'  => $validator->errors()->all(),
+            ], 422);
         }
 
         $user = Auth::user();
@@ -70,7 +74,7 @@ class SurveyAnswerController extends BaseController
         $response = [
             'status'  => 'success',
             'code'    => 200,
-            'message' => 'Successful conection.',
+            'message' => 'Successful connection.',
             'result'  => [
                 'status'  => 'success',
                 'code'    => 200,
