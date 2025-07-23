@@ -16,7 +16,7 @@ class SurveyQuestionController extends BaseController
         $response = [
             'status'  => 'success',
             'code'    => 200,
-            'message' => 'Successful conection.',
+            'message' => 'Successful connection.',
             'result'  => $answers->toArray(),
         ];
         return response()->json($response, 200);
