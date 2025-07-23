@@ -151,7 +151,7 @@ class SurveyAnswerController extends BaseController
         $response = [
             'status'  => 'success',
             'code'    => 200,
-            'message' => 'Successful conection.',
+            'message' => 'Successful connection.',
             'result'  => [
                 'code'                => 200,
                 'survey_completed'    => $surveyStatus?->is_completed ?? false,
