@@ -18,63 +18,71 @@ La API permite:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/alvarezestefania/Survey-Backend.git
+    git clone https://github.com/alvarezestefania/Survey-Backend.git
 ```
 
 ### 2. Ir a la carpeta del proyecto
 
 ```bash
-cd Survey-Backend
+    cd Survey-Backend
 ```
 
-### 3. Instalar dependencias con Composer
+### 3. Cambiarse a la rama `develop`
 
 ```bash
-composer install
+    git checkout develop
 ```
 
-### 4. Copiar archivo `.env` y configurar variables de entorno
+### 4. Instalar dependencias con Composer
 
 ```bash
-cp .env.example .env
+    composer install
+```
+
+### 5. Copiar archivo `.env` y configurar variables de entorno
+
+```bash
+    cp .env.example .env
 ```
 
 Edita el archivo `.env` y configura tu base de datos:
 
 ```env
-DB_DATABASE=nombre_de_tu_base_de_datos
+DB_DATABASE=survey_api
 DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_contraseña
 ```
 
-### 5. Generar la clave de la aplicación
+### 6. Generar la clave de la aplicación
 
 ```bash
-php artisan key:generate
-```
-
-### 6. Cambiarse a la rama `develop`
-
-```bash
-git checkout develop
+    php artisan key:generate
 ```
 
 ### 7. Ejecutar las migraciones
 
 ```bash
-php artisan migrate
+    php artisan migrate
 ```
 
 ### 8. Ejecutar los seeders para cargar preguntas de ejemplo
 
 ```bash
-php artisan db:seed
+    php artisan db:seed
 ```
 
 ### 9. Levantar el servidor de desarrollo
 
 ```bash
-php artisan serve
+    php artisan serve
+```
+
+## 🧪 Ejecutar pruebas unitarias
+
+Este proyecto utiliza PHPUnit para las pruebas unitarias. Las pruebas están disponibles en la rama develop. Para ajecutar todas las pruebas, utiliza el siguiente comando:
+
+```bash
+    php artisan test
 ```
 
 ---
