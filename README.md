@@ -82,7 +82,7 @@ php artisan serve
 ## 🧠 Notas adicionales
 
 - Las funcionalidades están organizadas en ramas de feature (`feat/auth`, `feat/survey`) y luego integradas en `develop`.
-- La rama `main` se mantiene limpia como rama base.
+- La rama `master` se mantiene limpia como rama base.
 
 ---
 
